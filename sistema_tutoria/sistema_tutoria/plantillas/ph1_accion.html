@@ -1,0 +1,191 @@
+<!-- Indicamos que heredaremos desde plantilla_padre.html , osea podemos tener otras plantillas padre :3-->
+<!-- para la edición de asignación será necesaria otra plantilla padre yep -->
+{% extends "plantilla_padre1.html" %}
+<!-- aqui mandamos el título que será reemplazado en la plantilla padre-->
+{% block title %} Elegir acci&oacute;n {% endblock %}
+
+<!-- aqui mandamos el espacio reemplazable que creamos en la plantilla padre que está en el body-->
+{% block content %}
+{%load static%}
+	<!-- Inicio de la sección de botones -->
+	<!-- <section class="button-section d-flex align-items-center" style="height:650px"> -->
+		<!-- <div class="main-panel"> -->
+           
+<br><br>
+            <div class="content" >
+                <div class="container-fluid" >
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="card" style="background-color: #e9ecfb; color: black;">
+                                <div class="header" style="background-color: #e9ecfb; color: black;">
+                                    <h4 class="title text-center">Subir archivo de tutorados</h4>
+                                </div>
+                                <div class="content">
+
+                                    <div class="row">
+                                        <!-- <div class="col-md-3 offset-md-3"></div> -->
+                                        <div class="col-md-12 text-center">
+                                            <div class="form-group">
+                                                <label>Plantilla de los documentos a subir</label>
+                                                <br>
+                                                <a href="#" type="button" class="btn btn-pastel1" style="background-color: #18246c; color: white;">Descargar</a>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="col-md-3 offset-md-3"></div> -->
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6 text-center">
+                                            <div class="form-group">
+
+                                                <img class="avatar border-gray" src="{% static "imagenes/question.png" %}"
+                                                    alt="..." />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 text-center">
+                                            <div class="form-group">
+
+                                                <img class="avatar border-gray"  src="{% static "imagenes/question.png" %}"
+                                        alt="..."  />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6 text-center">
+                                            <div class="form-group">
+                                                <form>
+                                                    <label> <b>Alumno en riesgo</b> </label>
+                                                    <input class="form-control" type="file" id="formFile">
+                                                    
+                                                    <!-- <label>Subir Documento de Tutores</label> -->
+                                                    <!-- <input type="text" class="form-control" placeholder="Company"
+                                                        value="Mike"> -->
+                                            </div>
+                                            <button type="submit" class="btn btn-pastel1" style="background-color: #18246c; color: white;">Cargar</button>
+                                            <div class="clearfix">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6  text-center">
+                                            <form>
+                                                <div class="form-group">
+                                                    <label> <b>Alumnos becarios</b> </label>
+                                                    <input class="form-control" type="file" id="formFile">
+                                                </div>
+                                                <button type="submit" class="btn btn-pastel1" style="background-color: #18246c; color: white;">Cargar</button>
+
+                                        </div>
+                                    </div>
+
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-md-6 text-center">
+                                            <div class="form-group">
+
+                                                <img class="avatar border-gray" src="{% static "imagenes/question.png" %}"
+                                                    alt="..." />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 text-center">
+                                            <div class="form-group">
+
+                                                <img class="avatar border-gray"  src="{% static "imagenes/question.png" %}"
+                                        alt="..."  />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 text-center">
+                                            <div class="form-group">
+                                                <form > 
+                                                    <label><b>Alumnos observados</b></label>
+                                                    <input class="form-control" type="file" id="formFile">
+                                                    
+                                                    <!-- <label>Subir Documento de Tutores</label> -->
+                                                    <!-- <input type="text" class="form-control" placeholder="Company"
+                                                        value="Mike"> -->
+                                                </form>
+                                            </div>
+                                            <button type="submit" class="btn btn-pastel1" style="background-color: #18246c; color: white;"><b>Cargar</b></button>
+                                            <div class="clearfix">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6  text-center">
+                                            <form >
+                                            
+                                                <div class="form-group">
+                                                    <label> <b>Alumno del primer ciclo</b> </label>
+                                                    <input class="form-control" type="file" id="formFile">
+                                                </div>
+                                                <button type="submit" class="btn btn-pastel1" style="background-color: #18246c; color: white;">Cargar
+                                                </button>
+
+                                        </div>
+                                    </div>
+
+                                    <br><br>
+                                    <div class="row">
+                                        <!-- <div class="col-md-3 offset-md-3"></div> -->
+                                        <div class="col-md-12 text-center">
+                                        <form action="{% url 'mostrar' %}" method="post"> {% csrf_token %}
+                                            <!--<div class="form-group">
+                                                <a href="{% url 'mostrar' %}" type="button"
+                                                    class="btn btn-pastel1"  style="background-color: #6362ec; color: white;">Continuar</a>
+                                            </div>-->
+                                            <button type="submit" class="btn btn-pastell mt-4" >continuar</button>
+                                        </form>
+                                        </div>
+                                        <!-- <div class="col-md-3 offset-md-3"></div> -->
+
+                                    </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card card-user" style="background-color: #e9ecfb; color: black;">
+                                <div class="image">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZF4SWYhrZMdIO6UsB1g63luQAm8SsIDqovQ&usqp=CAU"
+                                        alt="..."  />
+                                </div>
+                                <div class="content">
+                                    <div class="author">
+                                        <a href="#">
+                                            <img class="avatar border-gray" src="{% static "imagenes/question.png" %}"
+                                                alt="..." />
+
+                                            <h4 class="title">Botón de ayuda<br />
+                                                <small>Información</small>
+                                            </h4>
+                                        </a>
+                                    </div>
+                                    <p class="description text-center"> Click aquí te mostrará <br>
+                                        la guía de este <br>
+                                        modulo"
+                                    </p>
+                                </div>
+                                <hr>
+                                <div class="text-center">
+                                    <button href="#" class="btn btn-simple"><i
+                                            class="fa fa-facebook-square"></i></button>
+                                    <button href="#" class="btn btn-simple"><i class="fa fa-twitter"></i></button>
+                                    <button href="#" class="btn btn-simple"><i
+                                            class="fa fa-google-plus-square"></i></button>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+	<!-- </section> -->
+	<!-- Fin de la sección de botones -->
+{% endblock %}

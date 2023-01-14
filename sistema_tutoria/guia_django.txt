@@ -1,0 +1,67 @@
+orden
+
+-documentos
+-rol_usuarios
+- rankings
+- dato_tutores
+
+-modalidades
+- dato_tutorados
+tutorados_modalidad
+- dato_usuarios
+doc_generados
+
+-desarrollo general del proyecto:
+-crear proyecto sistema_tutoria
+-crear aplicación ranking_tutoria
+- INSTALLED_APPS agregar nuestra aplicación para la conexión con el proyecto
+  para que nuestra aplicación forme parte de nuestro proyecto
+- TEMPLATES agregar ruta de nuestras plantillas html (nota: crear carpeta plantillas en la ruta del proyecto no de la aplicación)
+ 		'sistema_tutoria/plantillas/'
+-DATABASES cambiar la conexión de ser necesario (Nota los datos de esta parte son diferentes según usuario)
+  de ser necesario instalar lo siguiente: pip install mysqlclient
+-DATABASES recuerda crear base de datos vacia en tu gestor y conectarte a esa base de datos vacia
+-LANGUAGE_CODE 'es-pe' TIME-ZONE 'America/Lima' cambio de zona horaria e idioma
+- Agregar la ruta de la carpeta static que almacena carpetas (imagenes, css, js)
+-MEDIA_URL generará automáticamente la carpeta indicada cuando se haga uso de esta.
+- revise el archivo urls.py de la  aplicación requiere la linea patterns=[]
+- realizar por primera vez el comando migrate "python manage.py migrate"
+- Elaborar las tablas de nuestra base de datos con el archivo models.py
+- crear carpetas en la carpeta MEDIA creada donde van imagenes y todo lo que cargues a la base de datos
+- migrar los cambios realizados al elaborar models.py makemigrations migrate
+- creamos superusuario para editar base de datos desde la interfaz de administrador
+- debemos registrar nuestras tablas para editarlas desde la interfaz de administración
+- insertar algunos datos de prueba de ser necesario rapidez
+- importar las plantillas html a la carpeta plantillas
+- trabajar con el archivo views.py que nos permitira visualizar la plantilla
+- modificar el html si se requiere envio de datos "POST" "GET"
+- cargar la carpeta static al archivo html con {%load static%}
+- en caso de requerir envio de datos aplicar action="{% url 'nombre de función que hara uso de lo que manda el boton'%}"
+- {% csrf_token %} (despues del form donde se pone action) django lo requiere para mayor seguridad y que no se realicen operaciones de usuarios externos
+- no olvides declarar name"lo que sea" que servira como identificador del post en views.py
+- ahora debemos asignar la ruta del navegador en urls.py de nuestra aplicación ranking_tutoria colocando un nuevo "path()"
+
+{% for producto in productos %}
+<tr>
+<td><a method="post" href="{% url 'gestionar' %}" name="nombre_producto">{{ producto.nombre }}</a></td>
+</tr>
+{% endfor %}
+
+¿?
+
+diseño er prototipo y diccionario mayumi
+presentacion y backlog mery
+requisitos y diagramas diego
+sistemas y herramientas diego
+
+RF11 crear una tabla que guarde record de puntuaciones
+RF12 guardar datos de los tutorados
+docentes ponerles parametro activo e inactivo
+
+de para y asunto e informe
+
+
+Durante el periodo de prácticas desarrolladas, ha demostrado eficiencia, eficacia y responsabilidad en las tareas encomendadas, así consta 
+en su registro de control de asistencia e informe final de conformidad de prácticas.
+
+Se le expide el presente a solicitud de la interesada para los fines pertinenetes que estime por conveniente

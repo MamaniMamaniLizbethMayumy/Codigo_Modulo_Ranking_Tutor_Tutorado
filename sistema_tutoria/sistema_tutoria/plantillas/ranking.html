@@ -1,0 +1,160 @@
+<!-- Indicamos que heredaremos desde plantilla_padre.html , osea podemos tener otras plantillas padre :3-->
+<!-- para la edición de asignación será necesaria otra plantilla padre yep -->
+{% extends "plantilla_padre1.html" %}
+<!-- aqui mandamos el título que será reemplazado en la plantilla padre-->
+{% block title %} Elegir acci&oacute;n {% endblock %}
+
+<!-- aqui mandamos el espacio reemplazable que creamos en la plantilla padre que está en el body-->
+{% block content %}
+{%load static%}
+
+<!-- Inicio de la sección de botones -->
+<!-- <section class="button-section d-flex align-items-center" style="height:650px"> -->
+<!-- <div class="main-panel"> -->
+<style>
+  .contenedor2 {
+    width: 500px;
+    height: 200px;
+    margin: 20px auto;
+
+    background: #fff;
+    overflow: auto;
+    font-family: 'Open Sans';
+    border-radius: 10px;
+    float: right;
+
+  }
+
+  .contenedor2 h1 {
+    font-size: 25px;
+    font-weight: 600;
+    color: rgb(8, 79, 82);
+  }
+
+  .contenedor2 hr {
+    background: #ff9d00;
+    width: 30%;
+    height: 5px;
+    border: none;
+    margin: 20px 0;
+    border-radius: 50px;
+  }
+
+  .contenedor2::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  .contenedor2::-webkit-scrollbar-thumb {
+    background: #ff9d00;
+    border-radius: 5px;
+  }
+  
+</style>
+<br><br>
+<section class="content">
+  <div class="container-fluid">
+    <div class="card text-center">
+      <div class="card-header">
+        
+          <button href="" class="boton_atras" value="click me">Atras</button>
+      
+      </div>
+      <div class="card-body">
+        <!-- <div class="ranking">
+          <strong class="tipo_rank">A</strong>
+        </div> -->
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-header">
+                <div class="carcontened">
+                  <i class="icon_ques fa fa-question-circle" style="font-size:40px;"></i>
+                </div>
+                <h1>Tutores</h1>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body ">
+                <div class="contenedor2">
+
+                  <table>
+                    <tbody>
+                      <form method="post" action="{% url 'mostrar_tutorados' %}">
+                      {% csrf_token %}
+                        {% for tutor in tutores%}
+                            <tr>
+                                <td>
+                                    <div class="d-flex justify-content-center">
+                                        <div class="mx-auto">
+                                            <a style="display: inline-block;">
+                                            <span class="inline-content" style="white-space: nowrap;">
+                                                {{tutor.grado}}. {{tutor.nombres}} {{tutor.apellidos}}
+                                             </span>
+                                            </a>
+                                            <input type="submit" name="idprueba" value="Ver tutorados {{tutor.id}}" style="height:25px; width:350px; background-color:#d7d9eb;">
+                                            <!--<button type="submit" name="idprueba" style="height:25px; width:350px; background-color:#d7d9eb;"> {{tutor.id}} {{tutor.nombres}} {{tutor.apellidos}}</button>-->
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                      </form>
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <!-- /.card-body -->
+
+            </div>
+            <!-- /.card -->
+
+
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-header">
+                <div class="carcontened">
+                  <i class="icon_ques fa fa-question-circle" style="font-size:40px;"></i>
+                </div>
+                <h1>Tutorados</h1>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <div class="contenedor2">
+
+                  <table>
+                    <tbody>
+                        
+                        {% csrf_token %}
+                        {% for tutorado in tutorados%}
+                        <tr>
+                            <td class="text-center" >{{tutorado.nombres}} {{tutorado.apellidos}}</td>
+                        </tr>
+                        {% endfor %}
+                        
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <!-- /.card -->
+
+
+              <!-- /.card -->
+            </div>
+            <!-- /.col -->
+          </div>
+        </div>
+        <hr>
+        <div class="card-footer">
+          <button type="button" class="btn btn-primary">Descargas Asignacion</button>
+          <button type="button" class="btn btn-primary">Descargar ranking</button>
+          <button type="button" class="btn btn-primary">Editar asignacion</button>
+        </div>
+      </div>
+</section>
+<!-- </section> -->
+<!-- Fin de la sección de botones -->
+{% endblock %}
